@@ -233,3 +233,24 @@ for animal, params in animals.items():
     exec(f"{animal} = AnimalFactory('{animal}', *{params})")
 ```
 #### Тестирование
+Сценарий тестирования такой: мы создадим каждый описанный в `animals.json` класс с помощью нашей функции, создадим для каждого класса экземпляр, и проверим, что у него правильные значения имени и энергии. Потом мы вызовем по очереди все методы из `skills` и проверим, что они приводят к верным изменениям энергии.
+
+Для этого подключим модуль `unittest` и создадим пустой класс `TestSequence(unittest.TestCase)`, в который с помощью функции `tests_generator` динамически добавим соответствующие методы, реализующие описанные этапы тестирования для каждого из классов в `animals.json`. Само тестирование запускается вызовом `unittest.main()`.
+
+Пример работы (для файла `animals.json` только с котом):
+```
+$ python3 legacy_test -v
+test_energy_Cat (__main__.TestSequence) ... ok
+test_factory_Cat (__main__.TestSequence) ... ok
+test_skill_fly_Cat (__main__.TestSequence) ... My name is Cat_Sample and i can't fly
+ok
+test_skill_run_Cat (__main__.TestSequence) ... My name is Cat_Sample and i run
+ok
+test_skill_swim_Cat (__main__.TestSequence) ... My name is Cat_Sample and i can't swim
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
+```
