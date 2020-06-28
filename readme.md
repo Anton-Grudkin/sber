@@ -131,6 +131,13 @@ def time_profile(fn):
 
     return with_time_profiling
 ```
+## 2. Basic SQL
+[Ссылка](http://sqlfiddle.com/#!9/8c97f7/1) на SQL Fiddle с решениями обоих пунктов.
+## 3. Analyze SQL
+Решения на SQL Fiddle для [пункта а)](http://sqlfiddle.com/#!9/f72019/5) и [пункта b)](http://sqlfiddle.com/#!9/071f51/1). 
+
+*NB:* В пункте а) предполагается, что в таблице `rates` указаны курсы валют к валюте, в которой выражены объёмы транзакций в таблице `transactions` (т.е. если транзакции даны в рублях, то в `rates` даны курсы валют к рублю).
+
 ## 4. Python
 ### a) Поиск простого числа по индексу
 Рализация в [`finder.py`](https://github.com/Anton-Grudkin/sber/blob/master/finder.py). Логирование времени выполнения выведено через модуль `logging` в отдельный файл лога `finder.log`.
