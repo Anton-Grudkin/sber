@@ -5,6 +5,14 @@ import json, os
 class TestSequence(unittest.TestCase):
     pass 
 
+def get_skill_test(animal, skill, energy_change):
+    def test_skill(self):
+        energy_before = animal.get_energy
+        animal.__getattribute__(skill)()
+        self.assertEqual(animal.get_energy, energy_before - energy_change, \
+            f'Skill {skill} caused incorrect energy change for {animal.__name__} {animal.get_name}')
+    return test_skill
+
 def tests_generator(animal_type, init_energy, skills):
     animal = AnimalFactory(animal_type, init_energy, skills)(f'{animal_type}_Sample')
     def test_factory(self):
@@ -17,11 +25,7 @@ def tests_generator(animal_type, init_energy, skills):
 
     skill_tests = []
     for skill, energy_change in skills.items():
-        def test_skill(self):
-            energy_before = animal.get_energy
-            animal.__getattribute__(skill)()
-            self.assertEqual(animal.get_energy, energy_before - energy_change, \
-                f'Skill {skill} caused incorrect energy change for {animal.__name__} {animal.get_name}')
+        test_skill = get_skill_test(animal, skill, energy_change)
         test_skill.__name__ += f'_{skill}'
         skill_tests.append(test_skill)
 
