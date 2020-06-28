@@ -132,7 +132,7 @@ def time_profile(fn):
     return with_time_profiling
 ```
 ## 2. Basic SQL
-[Ссылка](http://sqlfiddle.com/#!9/8c97f7/1) на SQL Fiddle с решениями обоих пунктов.
+[Ссылка](http://sqlfiddle.com/#!9/8c97f7/3) на SQL Fiddle с решениями обоих пунктов.
 ## 3. Analyze SQL
 Решения на SQL Fiddle для [пункта а)](http://sqlfiddle.com/#!9/f72019/5) и [пункта b)](http://sqlfiddle.com/#!9/071f51/1). 
 
